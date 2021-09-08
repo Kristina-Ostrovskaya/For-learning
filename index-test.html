@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>index.html</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Merienda:wght@700&family=Taviraj:wght@300&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/46469f5f97.js" crossorigin="anonymous"></script>
+  <style>
+    /* слайдер*/
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body{
+      height: 100%;
+      position: relative;
+      min-height: 100%;
+    }
+    a{
+      text-decoration: none;
+      color: white;
+      cursor: pointer;
+    }
+    /*хедер*/
+    .label{
+      z-index: 100;
+      width: 100%;
+      height: 100px;
+      background-color: #a67a62;
+      display: flex;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      left: 0;
+    }
+    .label_name{
+      margin: 0 auto;
+      display: block;
+      color: white;
+      font-family: 'Merienda', cursive;
+    }
+    .label_line_1{
+      font-weight: bold;
+      font-size: 32px;
+    }
+    .label_line_2{
+      font-weight: 400;
+      font-size: 16px;
+      margin: -5px 30px 0;
+    }
+    /*ссылки*/
+    .page{
+      display: flex;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      justify-content: space-around;
+      color: white;
+      width: 40%;
+      margin: 0 auto;
+    }
+    .page_wrap{
+      margin: 0 20px 0 0;
+      max-width: 60px;
+    }
+    .page_wrap-main, .page_wrap-service, .page_wrap-gallery ,.page_wrap-reserv,.page_wrap-help {
+      transition: all 1s linear;
+      -webkit-transition: all 1s linear;
+    }
+    .page_wrap-main:hover, .page_wrap-service:hover, .page_wrap-gallery:hover ,.page_wrap-reserv:hover,.page_wrap-help:hover {
+      -webkit-transform: scale(1.7);
+      transform: scale(1.7);
+    }
+    .page_main:hover, .page_service:hover, .page_gallery:hover, .page_reserv:hover, .page_help:hover{
+      color: black;
+    }
+    .page_wrap-main:active, .page_wrap-service:active, .page_wrap-gallery:active ,.page_wrap-reserv:active,.page_wrap-help:active {
+      -webkit-transform: scale(1.7);
+      transform: scale(1.7);
+    }
+    .page_main:active, .page_service:active, .page_gallery:active, .page_reserv:active, .page_help:active{
+      color: white;
+    }
+    .page_main, .page_service, .page_gallery, .page_reserv, .page_help{
+      color: white;
+      font-family: 'Taviraj', serif;
+      font-size: 18px;
+      font-weight: 500;
+      text-align: center;
+      transition: all 1s linear;
+      -webkit-transition: all 1s linear;
+      transition: 0.3s;
+    }
+
+    /*главное фото + название*/
+    .main-photo{
+      background-position-y: bottom;
+      display: block;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 600px;
+      background-image: url("images/label_main.jpg");
+      background-color: #f0f4f5;
+      background-repeat: no-repeat;
+      border-bottom: .5px #a67a62 solid;
+    }
+    .main-photo_box{
+      display: flex;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      position: relative;
+      top: 20%;
+      left: 52%;
+      -ms-flex-direction: column;
+      -webkit-flex-direction: column;
+      flex-direction: column;
+      justify-content: center;
+      border: 3px #a67a62 double;
+      width: 30%;
+      height: 50%;
+      box-shadow: 6px 6px 6px #a67a62;
+      font-family: 'Taviraj', serif;
+      text-align: center;
+      transition: all .5s linear;
+      -webkit-transition: all .5s linear;
+    }
+    .main-photo_discription-max{
+      font-size: 4em;
+      font-weight: bold;
+      margin: 2%;
+      -webkit-transition: all 2s ease-in-out;
+      transition: all 2s ease-in-out;
+    }
+    .main-photo_discription-min{
+      font-size: 1em;
+    }
+    .main-photo_discription-max:hover{
+      -webkit-transform: scaleX(-1.2);
+      transform: scaleX(-1.2);
+    }
+    hr{
+      width: 70%;
+      margin: 0 auto;
+    }
+
+    /*Новости*/
+    .news{
+      flex-wrap: wrap;
+      display: flex;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      align-items: center;
+      justify-content: space-around;
+      width: 100%;
+      min-height: 400px;
+    }
+    .news-fact, .news-learning, .news-brow-better, .news-brow-after{
+      width: 40%;
+      background-color: #d3b8a7;
+      border: .5px #a97f5f solid;
+      box-shadow: -1em 0 .4em #a97f5f;
+      height: 300px;
+      margin: 30px;
+    }
+    .news-fact_name, .news-learning_name, .news-brow-better_name, .news-brow-after_name{
+      width: 100%;
+      height: 40px;
+      text-align: center;
+      color: black;
+      text-shadow: 1px 1px 2px black;
+      font-family: 'Taviraj', serif;
+      font-weight: 400;
+      transition: all .5s linear;
+    }
+    .news-fact_name:hover, .news-learning_name:hover, .news-brow-better_name:hover, .news-brow-after_name:hover{
+      -webkit-transform: scale(1.2);
+      transform: scale(1.2);
+    }
+    .news-fact_container-discription, .news-learning_container-discription, .news-brow-better_container-discription, .news-brow-after_container-discription{
+      display: inline-block;
+      color: black;
+      overflow: scroll;
+      height: 230px;
+    }
+    .news-fact_container-discription::-webkit-scrollbar, .news-learning_container-discription::-webkit-scrollbar, .news-brow-better_container-discription::-webkit-scrollbar, .news-brow-after_container-discription::-webkit-scrollbar {
+      width: 0;
+    }
+    .news-fact_img, .news-learning_img, .news-brow-better_img, .news-brow-after_img{
+      float: left;
+      width: 30%;
+      height: auto;
+      border-color: #a97f5f;
+      margin: 10px;
+    }
+    .news-fact_discription, .news-learning_discription, .news-brow-better_discription, .news-brow-after_discription{
+      text-align: justify;
+      width: 97%;
+      color: black;
+      font-size: 18px;
+      margin: 5px;
+    }
+    .news-fact_full, .news-learning_full, .news-brow-better_full, .news-brow-after_full{
+      position: relative;
+      bottom: 5px;
+      width: 98%;
+      text-align: right;
+    }
+    .news-fact_full-link, .news-learning_full-link, .news-brow-better_full-link, .news-brow-after_full-link{
+      color: #a97f5f;
+    }
+    .news-fact_full-link:hover, .news-learning_full-link:hover, .news-brow-better_full-link:hover, .news-brow-after_full-link:hover{
+      color: #391c11;
+    }
+    .news-fact_full-link:active, .news-learning_full-link:active, .news-brow-better_full-link:active, .news-brow-after_full-link:active{
+      color: black;
+    }
+    .fa-edit_color{
+      color: Indigo;
+    }
+
+    /*Скидка месяца*/
+    .sale{
+      margin: 50px auto 30px;
+      width: 100%;
+      display: flex;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      -ms-flex-direction: column;
+      -webkit-flex-direction: column;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .sale_heading{
+      cursor: pointer;
+      display: block;
+      width: 80%;
+      text-align: center;
+      font-size: 50px;
+      font-family: 'Merienda', cursive;
+      margin: 15px;
+      background-color: #edf1f4;
+      -webkit-animation: sale_heading 1s linear alternate infinite;
+      animation: sale_heading 1s linear alternate infinite;
+    }
+    @-webkit-keyframes sale_heading {
+      0% {
+        -webkit-transform: translateX(-20px);   
+        box-shadow: 10px 10px 15px #a97f5f; 
+      }
+      100% {
+        transform: translateX(20px);   
+        box-shadow: -10px -10px 15px #a97f5f; 
+      }
+    }
+    @keyframes sale_heading {
+      0% {
+        -webkit-transform: translateX(-20px);   
+        box-shadow: 10px 10px 15px #a97f5f; 
+      }
+      100% {
+        transform: translateX(20px);   
+        box-shadow: -10px -10px 15px #a97f5f; 
+      }
+    }
+    .sale_name{
+      display: none;
+      width: 100%;
+      margin: 15px;
+      font-family: 'Taviraj', serif;
+      font-size: 18px;
+      text-align: center;
+      color:#391c11;
+    }
+    .sale_footer{
+      width: 75%;
+      text-align: right;
+    }
+    button{
+      border: none;
+    }
+    sub{
+      font-size: 14px;
+    }
+    .sale_discription{
+      margin: 10px;
+    }
+
+    /*Футер*/
+    .footer{
+      width: 100%;
+      height: 10em;
+      background-color: #a67a62;
+      display: flex;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      color: white;
+      justify-content: space-around;
+      align-items: center;
+    }
+    .copy, .address, .about-studio{
+      display: flex;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      width: 30%;
+      -ms-flex-direction: column;
+      -webkit-flex-direction: column;
+      flex-direction: column;
+      align-items: center;
+    }
+    .copy-discription{
+      font-size: 14px;
+    }
+    .copy-img, .address-border, .about-studio-border, .address-border-tel, .address-border-taplink{
+      margin: 2%;
+      align-items: center;
+    }
+    .address-border, .address-border-tel, .address-border-taplink{
+      align-self: flex-start;
+    }
+    .web_links{
+      width: 20%;
+      display: flex;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      -ms-flex-direction: row;
+      -webkit-flex-direction: row;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-around;
+    }
+    .web_links-border{
+      margin: 10%;
+    }
+    .address-border-taplink:hover,.address_taplink:hover,.address-border-tel:hover,.address-phone:hover,.web_links-instagram:hover,.web_links-telegram:hover,.web_links-whatsapp:hover{
+      color: Indigo;
+    }
+    .label_footer{
+      width: 100%;
+    }
+
+
+    @media (max-width:1280px){
+    .main-photo_discription-max{
+      font-size: 3em;
+    }
+    .sale{
+      margin: 40px auto 30px;
+    }
+    .sale_heading{
+      font-size: 40px;
+      margin: 10px;
+    }
+  }
+
+    @media (max-width:768px){
+      /*Хедер*/
+    .label{
+      -ms-flex-direction: column;
+      -webkit-flex-direction: column;
+      flex-direction: column;
+    }
+    .label_name{
+      margin: 0 3%;
+      justify-content: left;
+      border-bottom: .5px black solid;
+    }
+    .label_line_1{
+      font-size: 26px;
+    }
+    .label_line_2{
+      font-size: 16px;
+    }
+    .page{
+      width: 50%;
+    }
+    .page_wrap{
+      margin: 0 10% 0 0;
+    }
+
+    /*Главное фото*/
+    .main-photo{
+      height: 500px;
+      background-image: url("images/label_main_400.jpg");
+    }
+    .main-photo_box{
+      top: 30%;
+      right: 15%;
+      box-shadow: 6px 6px 6px #a67a62;
+      height: 40%;
+    }
+    .main-photo_discription-max{
+      font-size: 2em;
+    }
+    .main-photo_discription-min{
+      font-size: .5em;
+    }
+    .main-photo_discription-max:hover{
+      -webkit-transform: scaleY(-1);
+      transform: scaleY(-1);
+    }
+        /*Новости*/
+    .news{
+      min-height: 300px;
+    }
+    .news-fact, .news-learning, .news-brow-better, .news-brow-after{
+      width: 90%;
+      height: 270px;
+      margin: 15px;
+    }
+    .news-fact_name, .news-learning_name, .news-brow-better_name, .news-brow-after_name{
+      height: 30px;
+      margin: 5px;
+    }
+    .news-fact_container-discription, .news-learning_container-discription, .news-brow-better_container-discription, .news-brow-after_container-discription{
+      height: 200px;
+    }
+    .news-fact_img, .news-learning_img, .news-brow-better_img, .news-brow-after_img{
+      width: 40%;
+      margin: 7px;
+    }
+    .news-fact_discription, .news-learning_discription, .news-brow-better_discription, .news-brow-after_discription{
+      font-size: 16px;
+    }
+
+    /*Скидка месяца*/
+    .sale{
+      margin: 20px auto 15px;
+    }
+    .sale_heading{
+      width: 70%;
+      font-size: 22px;
+    }
+    .sale_name{
+      font-size: 14px;
+    }
+    sub{
+      font-size: 10px;
+    }
+
+    /*Футер*/
+    .copy{
+      display: none;
+    }
+    .address, .about-studio{
+      width: 40%;
+    }
+
+
+    @media (max-width:480px){
+      /*Хедер*/
+    .label{
+      height: auto;
+    }
+    .label_line_2{
+      font-size: 16px;
+    }
+    .page{
+      -ms-flex-direction: column;
+      -webkit-flex-direction: column;
+      flex-direction: column;
+      width: 100%;
+      align-items: center;
+      justify-content: center;
+    }
+    .page_wrap{
+      margin: 0 10% 0 0;
+      border-bottom: .5px black solid;
+    }
+
+    /*Главное фото*/
+    .main-photo{
+      height: 550px;
+    }
+    .main-photo_box{
+      height: 20%;
+    }
+    .main-photo_discription-max {
+      font-size: 1em;
+    }
+
+    /*Скидка месяца*/
+    .sale{
+      margin: 15px auto 15px;
+    }
+    .sale_heading{
+      width: 85%;
+      font-size: 20px;
+    }
+    .sale_name{
+      font-size: 12px;
+    }
+    sub{
+      font-size: 8px;
+    }
+
+        /*Футер*/
+    }
+    .footer{
+      height: 120px;
+    }
+    .copy, .about-studio-border{
+      display: none;
+    }
+    .address{
+      font-size: 14px;
+      width: 75%;
+    }
+    .web_links{
+      -ms-flex-direction: column;
+      -webkit-flex-direction: column;
+      flex-direction: column;
+      margin: 0 5% 0 0;
+    }
+    .address-border, .address-border-tel, .address-border-taplink{
+      margin:  2% 2% 2% 10%;
+    }
+
+
+    @media (max-width:320px){
+
+    /*Главное фото*/
+    .main-photo{
+      height: 550px;
+    }
+    .main-photo_box{
+      height: 20%;
+    }
+    .main-photo_discription-max {
+      font-size: 1em;
+    }
+
+    /*Скидка месяца*/
+    }
+    .sale_name{
+      font-size: 12px;
+    }
+    sub{
+      font-size: 8px;
+    }
+    
+    }
+  </style>
+</head>
+<body>
+      <!-- хедер(лэйбл) с сайдбаром -->
+  <header class="label">
+    <section class="label_name">
+      <a href="index.html" title="Главная">
+        <div class="label_line_1">TOP FACE
+        <p class="label_line_2">PERMANENT MAKE UP</p>
+        </div>
+      </a>
+    </section>
+    <sidebar class="page">  
+      <div class="page_wrap">
+        <div class="page_wrap-main">
+          <a class="page_main" href="index.html" title="Главная">Главная</a>
+        </div>
+      </div>
+      <div class="page_wrap">
+        <div class="page_wrap-service">
+          <a class="page_service" href="#">Услуги</a>
+        </div>
+      </div>
+      <div class="page_wrap">
+        <div class="page_wrap-gallery">
+          <a class="page_gallery" href="#">Галерея</a>
+        </div>
+      </div>
+      <div class="page_wrap">
+        <div class="page_wrap-reserv">
+          <a class="page_reserv" href="#">Запись</a>
+        </div>
+      </div>
+      <div class="page_wrap">
+        <div class="page_wrap-help">
+          <a class="page_help" href="#">Помощь</a>
+        </div>
+      </div>
+    </sidebar>
+  </header>
+
+    <!-- Главное фото -->
+  <div class="main-photo">
+    <div class="main-photo_box">
+      <p class="main-photo_discription-max">TOP FACE</p><hr>
+      <p class="main-photo_discription-min">PERMANENT MAKE UP</p>
+    </div>
+  </div>
+
+        <!-- Блок новостей -->
+  <div class="news">
+    <div class="news-fact">
+      <h2 class="news-fact_name">15 фактов</h2>
+      <div class="news-fact_container-discription">
+        <img class="news-fact_img" src="images/news-fact.jpg" alt="news-fact">
+        <p class="news-fact_discription">
+          &#10144;; Перманентный макияж не навсегда.<br>
+          &#10144; Рисунок бровей держится около 1,5 лет, губ около 3х лет, на коже век он может сохраниться до 10 лет<br>
+          &#10144; Волоски на бровях сохраняются и брить их перед процедурой не стоит.<br>
+          &#10144; Черный пигмент, в чистом виде, на бровях не используется. Категорически.<br>
+          &#10144; Во время процедуры нет крови.<br>
+          &#10144; Перманентный макияж ,при правильном выполнении-это не больно.
+          &#10144; После процедуры не нужно брать выходной и отсиживаться дома-вы будете выглядеть замечательно.<br>
+          &#10144; Самая чувствительная-зона губ,там проходит много нервных окончаний.<br>
+          &#10144; С помощью перманентного макияжа нельзя увеличить губы,допустимо лишь добавить 1 мм к природному контуру/ <br>
+          &#10144; Качественный современный перманентный макияж не бросается в глаза.Он выглядит естественно и выгодно подчеркивает ваше лицо.
+      </p>
+    </div>
+    <div class="news-fact_full">
+      <a class="news-fact_full-link" href="https://vk.com/@one_love_pmu-15-faktov-o-permanentnom-makiyazhe" title="Полное описание">Полная статья <i class="fas fa-check"></i></a>
+    </div>
+  </div>
+
+  <div class="news-learning">
+      <h2 class="news-learning_name">Обучение</h2>
+      <div class="news-learning_container-discription">
+        <img class="news-learning_img" src="images/news-learning.jpg" alt="news-learning">
+        <p class="news-learning_discription">
+          &#10144;; Проводится один раз месяц.<br>
+          &#10144; Длительность курса 3-5 дней. Зависит от количества человек в группе.<br>
+          &#10144; Стоимсоть индивидуального/группового курса можно узнать записавшись по  
+           <!-- ВСТАВИТЬ РЕАЛЬНУЮ ССЫЛКУ НА ФОРМУ -->
+           <a href="" title="Форма для записи"><i class="fas fa-edit fa-edit_color"></i></a><br>
+          &#10144; Конспекты и вся дополнительная информация будет выслана вам на почту по записи на курс.<br>
+          &#10144; Каждый отработает знания на моделях.<br>
+          &#10144; Нужные инструменты и дополнительные принадлежности для выполнения работ будут выдаваться.<br>
+          &#10144; По окончанию обучения каждый получит сертификат.<br>
+          &#10144; Фотосессии будут проводится на протяжении всего обучения.<br>
+          &#10144; Приятный отдых с преподавателем по окончанию курса.<br>
+        </p>
+      </div>
+      <div class="news-learning_full">
+        <a class="news-learning_full-link" href="https://taplink.cc/viktoria__permanent" title="Полное описание">Полная статья <i class="fas fa-check"></i></a>
+      </div>
+    </div>
+
+    <div class="news-brow-better">
+      <h2 class="news-brow-better_name">Перманент &amp Татуаж</h2>
+      <div class="news-brow-better_container-discription">
+        <img class="news-brow-better_img" src="images/brow-better-then-druow-pen.jpg" alt="news-brow-better">
+        <p class="news-brow-better_discription">
+          &#10144; Процедура татуажа проводится с помощью специальных устройств.<br>
+          &#10144; Для процедуры тату используются синтетические пигменты на спиртовой основе, которые проникают в глубокие слоя кожи и практически не теряют свою яркость.<br>
+          &#10144; Во время татуажа клиент испытывает существенный дискомфорт и болезненные ощущения.<br>
+          &#10144; В некоторых случаях мастера даже практикуют анестезию, чтобы облегчить боль клиенту и нанести четкий рисунок.
+          Перманентный макияж боли практически не вызывает. Единственное, могут возникать ощущения в виде зуда или легкого покалывания.<br>
+          &#10144; Татуаж может проявляться осложнениями в виде длительно заживающих рубцов и шрамов. Однако главное преимущество процедуры – это цвет, который всегда будет оставаться ярким и красивым.<br>
+          &#10144; Перманентный макияж практически не вызывает никаких побочных эффектов. Структура кожных покровов не повреждается. Эффект от процедуры сохраняется в течение 3-5 лет.</p>
+      </div>
+      <div class="news-brow-better_full">
+        <a class="news-brow-better_full-link" href="https://ru-comf.ru/blogs/blog/tatuazh-i-permanentnyy-makiyazh-v-chem-otlichiya" title="Полное описание">Полная статья <i class="fas fa-check"></i></a>
+      </div>
+    </div>
+
+    <div class="news-brow-after">
+      <h2 class="news-brow-after_name">А что, если прошёл год?..</h2>
+      <div class="news-brow-after_container-discription">
+        <img class="news-brow-after_img" src="images/news-brow-after-ane-year.jpg" alt="news-brow-after">
+        <p class="news-brow-after_discription">
+          &#10144; Коррекция считается обязательной для теневого напыления - об этом сразу предупреждает мастер. Пудровые брови - специфическая процедура за счет особенностей ее исполнения. 
+          В течении выполнения пигмент внедряется с помощью машинки точечно, при этом он вводится в верхний слой дермы. В период регенерации кожи пигмент становится светлее (осадок может 
+          быть от 20% до 90%, это зависит от восприятия организмом пигмента), могут появиться пробелы или мелкие недостатки. Поэтому коррекция становится неотъемлемым этапом процедуры..<br>
+          &#10144; С помощью коррекции можно изменить оттенок бровей. Например, если пигмент дал недостаточный осадок и бровки слишком светлые. 
+          Или мастером были применим некачественный пигмент, который в период восстановления дермы дал неправильный цвет: рыжий, красный, синий и др..<br>
+          &#10144; Делать коррекцию или нет - ваше личное дело. Если окончательный результат после первого сеанса нравится, то можно не выполнять доработку. Но будьте готовы к тому, что эффект татуажа 
+          бровей продержится меньший период времени. Если же хочется доработать результат по каким-либо причинам, то коррекция будет обязательным этапом процедуры перманента бровей.</p>
+      </div>
+      <div class="news-brow-after_full">
+        <a class="news-brow-after_full-link" href="https://permanentprofy.com.ua/nuzhna-li-korrekcziya-tatuazha-brovey.html" title="Полное описание">Полная статья <i class="fas fa-check"></i></a>
+      </div>
+    </div>
+  </div>
+
+        <!-- Акция месяца -->
+        <article class="sale">
+          <button class="sale_heading">SALE &laquo; FOR FRIENDS &raquo; <sub>CLICK</sub></button>
+          <article class="sale_name">
+              <h2>Давно хотели но что-то останавливало?.. Время пришло раздавать приятные бонусы</h2>
+              <p class="sale_discription">
+                <i class="fas fa-check-double"></i> Запиши себя и подругу &mdash; получи Скидку <b>20%</b>.<br>
+                <i class="fas fa-check-double"></i> При записи сразу двоих подруг &mdash; Скидка <b>30%</b><br>
+                <i class="fas fa-check-double"></i> Воспользуйтесь услугой в течении месяца оставив заявку  <a href="" title="Форма для записи"><i class="fas fa-edit fa-edit_color"></i></a>
+                <br>
+              </p>
+              <footer class="sale_footer">
+                <p>
+                  Опубликовано
+                  <time datetime="2021-09-04 19:00">04 сентября</time>
+                </p>
+              </footer>
+          </article>
+        </article>
+    
+        <script>
+          var coll = document.getElementsByClassName("sale_heading");
+          var i;
+          
+          for (i = 0; i < coll.length; i++) {
+              coll[i].addEventListener("click", function() {
+                  this.classList.toggle("active");
+                  var content = this.nextElementSibling;
+                  if (content.style.display === "block") {
+                      content.style.display = "none";
+                  } else {
+                      content.style.display = "block";
+                  }
+              });
+          }
+          </script>
+
+      <footer class="footer">
+        <div class="copy">
+          <div class="copy-img"><img class="label_footer" src="images/label_name.jpg" alt="label_name"></div>
+          <div><p class="copy-discription">&copy; Все права защищены. "TOP FACE", 2021</p></div>
+        </div>
+        <div class="address">
+          <div class="address-border">
+            <i class="fas fa-globe-americas"></i> г. Новополоцк, ул.Дружбы, 8
+          </div>
+          <div class="address-border-tel">
+            <i class="fas fa-phone-volume"></i>
+            <a class="address-phone" href="tel:+375336509776">+ 375(33)650-97-76</a>
+          </div>
+          <div class="address-border-taplink">
+            <i class="fas fa-envelope"></i> 
+            <a class="address_taplink" href="https://taplink.cc/viktoria__permanent" title="Прайс на услуги">Прайс на услуги</a>
+          </div>
+        </div>
+        <div class="about-studio">
+          <div class="about-studio-border">
+            <p>О СТУДИИ</p>
+          </div>
+          <div class="about-studio-border">
+            <p>Студия №1 в г. Новополоцк</p>
+          </div>
+          <div class="web_links">
+            <div class="web_links-border">
+              <a class="web_links-instagram" href="https://www.instagram.com/top_face__permanent/" title="top_face__permanent">
+                <i class="fab fa-instagram fa-2x"></i>
+              </a>
+             </div>
+            <div class="web_links-border">
+              <a class="web_links-telegram" href="https://telegram.me/kris_ostrovskaya">
+                <i class="fab fa-telegram-plane fa-2x"></i>
+              </a>
+            </div>
+            <div class="web_links-border">
+              <a class="web_links-whatsapp" href="https://wa.me/375336509776">
+                <i class="fab fa-whatsapp fa-2x"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </footer>
+      
+</body>
+</html>
